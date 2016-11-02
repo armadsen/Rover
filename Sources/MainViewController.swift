@@ -51,7 +51,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             let uiUpdateOp = BlockOperation {
                 defer { self.operations.removeValue(forKey: photoRef.id) }
                 
-                guard collectionView.indexPath(for: cell) == indexPath else {
+                if let currentIndexPath = collectionView.indexPath(for: cell),
+                    currentIndexPath != indexPath {
+                    print("Got image for now-reused cell")
                     return // Cell has been reused
                 }
                 
