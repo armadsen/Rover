@@ -24,6 +24,7 @@ class FetchPhotoOperation: ConcurrentOperation {
         
         let task = session.dataTask(with: url) { (data, response, error) in
             defer { self.state = .isFinished }
+            if self.isCancelled { return }
             if let error = error {
                 NSLog("Error fetching data for \(self.photoReference): \(error)")
                 return
