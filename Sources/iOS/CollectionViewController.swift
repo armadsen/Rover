@@ -8,19 +8,18 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		dataSource = MarsPhotoDataSource(collectionView: collectionView)
+		dataSource = MarsPhotosDataSource()
 		collectionView.dataSource = dataSource
-		collectionView.delegate = dataSource
-		dataSource.loadData()
+		dataSource.loadDataIfNeeded()
     }
     
     // Properties
-	private var dataSource: MarsPhotoDataSource!
+	private var dataSource: MarsPhotosDataSource!
 	
     @IBOutlet var collectionView: UICollectionView!
 }

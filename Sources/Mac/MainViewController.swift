@@ -8,19 +8,109 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
-
+class MainViewController: NSViewController, NSPageControllerDelegate, CollectionViewControllerDelegate {
+	
+	// MARK: Overridden
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		dataSource = MarsPhotoDataSource(collectionView: collectionView)
-		collectionView.dataSource = dataSource
-		collectionView.delegate = dataSource
-		dataSource.loadData()
+		collectionViewController = storyboard?.instantiateController(withIdentifier: "CollectionViewController") as? CollectionViewController
+		detailViewController = storyboard?.instantiateController(withIdentifier: "PhotoDetailViewController") as? PhotoDetailViewController
+		
+		pageController.delegate = self
+		pageController.transitionStyle = .stackHistory
+		pageController.arrangedObjects = [collectionViewController.dataSource]
+		backButton.isEnabled = false
 	}
 	
-	// Properties
-	private var dataSource: MarsPhotoDataSource!
+	// MARK: Public Methods
 	
-	@IBOutlet var collectionView: NSCollectionView!
+	// MARK: CollectionViewControllerDelegate
+	
+	func photo(_ photo: MarsPhotoReference, selectedIn collectionViewController: CollectionViewController) {
+		NSAnimationContext.runAnimationGroup({ (context) in
+			self.pageController.arrangedObjects = [collectionViewController.dataSource, photo]
+			self.pageController.animator().selectedIndex = 1
+		}, completionHandler: {
+			self.pageControllerDidEndLiveTransition(self.pageController)
+		})
+	}
+	
+	// MARK: Actions
+	
+	// MARK: NSPageControllerDelegate
+	
+	enum PageIdentifier: String {
+		case collectionView
+		case detailView
+	}
+	
+	func pageController(_ pageController: NSPageController, identifierFor object: Any) -> String {
+		if object is MarsPhotosDataSource {
+			return PageIdentifier.collectionView.rawValue
+		} else {
+			return PageIdentifier.detailView.rawValue
+		}
+	}
+	
+	func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
+		guard let identifier = PageIdentifier(rawValue: identifier) else { return NSViewController() }
+		switch identifier {
+		case .collectionView:
+			return collectionViewController
+		default:
+			return detailViewController
+		}
+	}
+	
+	func pageController(_ pageC: NSPageController, prepare viewController: NSViewController, with object: Any?) {
+		/*if let dataSource = object as? MarsPhotosDataSource,
+			let collectionVC = viewController as? CollectionViewController {
+			
+		} else */ if let photoRef = object as? MarsPhotoReference,
+			let detailVC = viewController as? PhotoDetailViewController {
+			detailVC.photoInfo = photoRef
+			if let imageData = PhotoCache.sharedCache.imageData(for: photoRef.id) {
+				detailVC.image = NSImage(data: imageData)
+			} else {
+				detailVC.image = nil
+			}
+		}
+	}
+	
+	func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
+		pageController.completeTransition()
+		
+		if pageController.selectedIndex == 0 {
+			backButton.isEnabled = false
+			detailViewController.photoInfo = nil
+			detailViewController.image = nil
+		} else {
+			backButton.isEnabled = true
+		}
+		
+	}
+	
+	// MARK: Private Methods
+	
+	// MARK: Public Properties
+	
+	// MARK: Private Properties
+	
+	var collectionViewController: CollectionViewController! {
+		willSet {
+			collectionViewController?.delegate = nil
+		}
+		didSet {
+			collectionViewController?.delegate = self
+		}
+	}
+	var detailViewController: PhotoDetailViewController!
+	
+	// MARK: Outlets
+	
+	@IBOutlet var backButton: NSButton!
+	@IBOutlet var pageController: NSPageController!
+	
 }

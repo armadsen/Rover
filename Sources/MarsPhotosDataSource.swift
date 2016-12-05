@@ -8,18 +8,21 @@
 
 import Foundation
 
-class MarsPhotoDataSource: NSObject, CollectionViewDataSource, CollectionViewDelegate {
+class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
-	init(collectionView: CollectionView, client: MarsRoverClient = MarsRoverClient()) {
-		self.collectionView = collectionView
+	init(client: MarsRoverClient = MarsRoverClient(), cache: PhotoCache = PhotoCache.sharedCache) {
 		self.client = client
+		self.cache = cache
 	}
 	
 	// MARK: Overridden
 	
 	// MARK: Public Methods
 	
-	func loadData() {
+	private var hasLoadedData = false
+	func loadDataIfNeeded() {
+		guard !hasLoadedData else { return }
+		
 		client.fetchMarsRover(named: "curiosity") { (rover, error) in
 			if let error = error {
 				NSLog("Error fetching info for curiosity: \(error)")
@@ -27,10 +30,16 @@ class MarsPhotoDataSource: NSObject, CollectionViewDataSource, CollectionViewDel
 			}
 			
 			self.roverInfo = rover
+			self.hasLoadedData = true
 		}
 	}
 	
-	// MARK: CollectionViewDataSource/Delegate
+	func cancelOperations(for indexPath: IndexPath) {
+		let photoRef = photoReferences[indexPath.item]
+		operations[photoRef.id]?.cancel()
+	}
+	
+	// MARK: CollectionViewDataSource
 	
 	func numberOfSections(in collectionView: CollectionView) -> Int {
 		return 1
@@ -53,12 +62,7 @@ class MarsPhotoDataSource: NSObject, CollectionViewDataSource, CollectionViewDel
 		return cell
 	}
 	#endif
-	
-	func collectionView(_ collectionView: CollectionView, didEndDisplaying cell: CollectionViewCell, forItemAt indexPath: IndexPath) {
-		let photoRef = photoReferences[indexPath.item]
-		operations[photoRef.id]?.cancel()
-	}
-	
+		
 	// MARK: Actions
 	
 	// MARK: Private Methods
@@ -79,7 +83,7 @@ class MarsPhotoDataSource: NSObject, CollectionViewDataSource, CollectionViewDel
 			let uiUpdateOp = BlockOperation {
 				defer { self.operations.removeValue(forKey: photoRef.id) }
 				
-				if let currentIndexPath = self.collectionView.indexPath(for: cell),
+				if let currentIndexPath = self.collectionView?.indexPath(for: cell),
 					currentIndexPath != indexPath {
 					print("Got image for now-reused cell")
 					return // Cell has been reused
@@ -104,11 +108,18 @@ class MarsPhotoDataSource: NSObject, CollectionViewDataSource, CollectionViewDel
 	
 	// MARK: Public Properties
 	
+	private(set) var photoReferences = [MarsPhotoReference]() {
+		didSet {
+			DispatchQueue.main.async { self.collectionView?.reloadData() }
+		}
+	}
+
+	
 	// MARK: Private Properties
 	
-	private let collectionView: CollectionView
+	var collectionView: CollectionView?
 	private let client: MarsRoverClient
-	private let cache = PhotoCache()
+	private let cache: PhotoCache
 	private let photoFetchQueue = OperationQueue()
 	private var operations = [Int : Operation]()
 	
@@ -126,11 +137,6 @@ class MarsPhotoDataSource: NSObject, CollectionViewDataSource, CollectionViewDel
 					self.photoReferences = photoRefs ?? []
 				}
 			}
-		}
-	}
-	private var photoReferences = [MarsPhotoReference]() {
-		didSet {
-			DispatchQueue.main.async { self.collectionView.reloadData() }
 		}
 	}
 	

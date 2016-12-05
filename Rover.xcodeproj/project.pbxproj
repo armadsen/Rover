@@ -16,19 +16,23 @@
 		9D23386E1DF5F0B00073D67E /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
 		9D23387A1DF5F1250073D67E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338771DF5F1250073D67E /* AppDelegate.swift */; };
 		9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338781DF5F1250073D67E /* ImageCollectionViewCell.swift */; };
-		9D23387C1DF5F1250073D67E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338791DF5F1250073D67E /* MainViewController.swift */; };
+		9D23387C1DF5F1250073D67E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338791DF5F1250073D67E /* CollectionViewController.swift */; };
 		9D2338841DF5F14F0073D67E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23387E1DF5F12A0073D67E /* AppDelegate.swift */; };
 		9D2338931DF5F1CC0073D67E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338881DF5F1CC0073D67E /* Assets.xcassets */; };
 		9D2338941DF5F1CC0073D67E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338891DF5F1CC0073D67E /* LaunchScreen.storyboard */; };
 		9D2338951DF5F1CC0073D67E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D23388B1DF5F1CC0073D67E /* Main.storyboard */; };
 		9D23389C1DF5F1F90073D67E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338901DF5F1CC0073D67E /* Main.storyboard */; };
 		9D23389D1DF5F1FC0073D67E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D23388F1DF5F1CC0073D67E /* Assets.xcassets */; };
-		9D23389F1DF5F2230073D67E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338851DF5F1980073D67E /* MainViewController.swift */; };
-		9D2338A31DF5F35E0073D67E /* MarsPhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */; };
-		9D2338A41DF5F3D30073D67E /* MarsPhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */; };
+		9D23389F1DF5F2230073D67E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338851DF5F1980073D67E /* CollectionViewController.swift */; };
+		9D2338A31DF5F35E0073D67E /* MarsPhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A21DF5F35E0073D67E /* MarsPhotosDataSource.swift */; };
+		9D2338A41DF5F3D30073D67E /* MarsPhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A21DF5F35E0073D67E /* MarsPhotosDataSource.swift */; };
 		9D2338A61DF5F79F0073D67E /* PlatformShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A51DF5F79F0073D67E /* PlatformShims.swift */; };
 		9D2338A71DF5F79F0073D67E /* PlatformShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A51DF5F79F0073D67E /* PlatformShims.swift */; };
 		9D2338AB1DF5FA5C0073D67E /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338A81DF5FA5C0073D67E /* ImageCell.xib */; };
+		9D2338B31DF603D90073D67E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338B21DF603D90073D67E /* MainViewController.swift */; };
+		9D2338B51DF605D50073D67E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338B41DF605D50073D67E /* PhotoDetailViewController.swift */; };
+		9D2338B71DF614360073D67E /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338B61DF614360073D67E /* DebugView.swift */; };
+		9D2338B91DF62BAE0073D67E /* PageBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338B81DF62BAE0073D67E /* PageBackgroundView.swift */; };
 		9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
 		9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
 		9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
@@ -42,9 +46,9 @@
 		9D2338511DF5F0150073D67E /* Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2338771DF5F1250073D67E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D2338781DF5F1250073D67E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		9D2338791DF5F1250073D67E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9D2338791DF5F1250073D67E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9D23387E1DF5F12A0073D67E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D2338851DF5F1980073D67E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9D2338851DF5F1980073D67E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9D2338881DF5F1CC0073D67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D23388A1DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D23388C1DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,9 +56,13 @@
 		9D23388F1DF5F1CC0073D67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D2338911DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D2338921DF5F1CC0073D67E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhotoDataSource.swift; sourceTree = "<group>"; };
+		9D2338A21DF5F35E0073D67E /* MarsPhotosDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhotosDataSource.swift; sourceTree = "<group>"; };
 		9D2338A51DF5F79F0073D67E /* PlatformShims.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformShims.swift; sourceTree = "<group>"; };
 		9D2338A91DF5FA5C0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImageCell.xib; sourceTree = "<group>"; };
+		9D2338B21DF603D90073D67E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9D2338B41DF605D50073D67E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		9D2338B61DF614360073D67E /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		9D2338B81DF62BAE0073D67E /* PageBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageBackgroundView.swift; sourceTree = "<group>"; };
 		9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRoverClient.swift; sourceTree = "<group>"; };
 		9D62E9E41DC93A3800C9E142 /* SolDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolDescription.swift; sourceTree = "<group>"; };
 		9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCache.swift; sourceTree = "<group>"; };
@@ -126,7 +134,7 @@
 		9D2338811DF5F1330073D67E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9D2338791DF5F1250073D67E /* MainViewController.swift */,
+				9D2338791DF5F1250073D67E /* CollectionViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -134,7 +142,9 @@
 		9D2338821DF5F13C0073D67E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9D2338851DF5F1980073D67E /* MainViewController.swift */,
+				9D2338B21DF603D90073D67E /* MainViewController.swift */,
+				9D2338851DF5F1980073D67E /* CollectionViewController.swift */,
+				9D2338B41DF605D50073D67E /* PhotoDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +152,8 @@
 		9D2338831DF5F1430073D67E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9D2338B61DF614360073D67E /* DebugView.swift */,
+				9D2338B81DF62BAE0073D67E /* PageBackgroundView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -187,7 +199,7 @@
 		9D2338A11DF5F3220073D67E /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */,
+				9D2338A21DF5F35E0073D67E /* MarsPhotosDataSource.swift */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -365,13 +377,17 @@
 			files = (
 				9D2338841DF5F14F0073D67E /* AppDelegate.swift in Sources */,
 				9D23386E1DF5F0B00073D67E /* MarsRoverClient.swift in Sources */,
-				9D2338A41DF5F3D30073D67E /* MarsPhotoDataSource.swift in Sources */,
+				9D2338B51DF605D50073D67E /* PhotoDetailViewController.swift in Sources */,
+				9D2338A41DF5F3D30073D67E /* MarsPhotosDataSource.swift in Sources */,
 				9D2338A71DF5F79F0073D67E /* PlatformShims.swift in Sources */,
 				9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */,
+				9D2338B31DF603D90073D67E /* MainViewController.swift in Sources */,
 				9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */,
+				9D2338B91DF62BAE0073D67E /* PageBackgroundView.swift in Sources */,
 				9D23386D1DF5F0AD0073D67E /* ConcurrentOperation.swift in Sources */,
 				9D23386B1DF5F0AA0073D67E /* SolDescription.swift in Sources */,
-				9D23389F1DF5F2230073D67E /* MainViewController.swift in Sources */,
+				9D2338B71DF614360073D67E /* DebugView.swift in Sources */,
+				9D23389F1DF5F2230073D67E /* CollectionViewController.swift in Sources */,
 				9D23386A1DF5F0AA0073D67E /* MarsPhoto.swift in Sources */,
 				9D23386C1DF5F0AD0073D67E /* FetchPhotoOperation.swift in Sources */,
 			);
@@ -386,12 +402,12 @@
 				9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */,
 				9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */,
 				9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */,
-				9D2338A31DF5F35E0073D67E /* MarsPhotoDataSource.swift in Sources */,
+				9D2338A31DF5F35E0073D67E /* MarsPhotosDataSource.swift in Sources */,
 				9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */,
 				9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */,
 				9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */,
 				9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */,
-				9D23387C1DF5F1250073D67E /* MainViewController.swift in Sources */,
+				9D23387C1DF5F1250073D67E /* CollectionViewController.swift in Sources */,
 				9D2338A61DF5F79F0073D67E /* PlatformShims.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 import Foundation
 
 class PhotoCache {
+	
+	static let sharedCache = PhotoCache()
     
     func cache(imageData: Data, for id: Int) {
         cacheQueue.sync {
