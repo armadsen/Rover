@@ -24,6 +24,11 @@
 		9D23389C1DF5F1F90073D67E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338901DF5F1CC0073D67E /* Main.storyboard */; };
 		9D23389D1DF5F1FC0073D67E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D23388F1DF5F1CC0073D67E /* Assets.xcassets */; };
 		9D23389F1DF5F2230073D67E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338851DF5F1980073D67E /* MainViewController.swift */; };
+		9D2338A31DF5F35E0073D67E /* MarsPhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */; };
+		9D2338A41DF5F3D30073D67E /* MarsPhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */; };
+		9D2338A61DF5F79F0073D67E /* PlatformShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A51DF5F79F0073D67E /* PlatformShims.swift */; };
+		9D2338A71DF5F79F0073D67E /* PlatformShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338A51DF5F79F0073D67E /* PlatformShims.swift */; };
+		9D2338AB1DF5FA5C0073D67E /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338A81DF5FA5C0073D67E /* ImageCell.xib */; };
 		9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
 		9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
 		9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
@@ -47,6 +52,9 @@
 		9D23388F1DF5F1CC0073D67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D2338911DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D2338921DF5F1CC0073D67E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhotoDataSource.swift; sourceTree = "<group>"; };
+		9D2338A51DF5F79F0073D67E /* PlatformShims.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformShims.swift; sourceTree = "<group>"; };
+		9D2338A91DF5FA5C0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImageCell.xib; sourceTree = "<group>"; };
 		9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRoverClient.swift; sourceTree = "<group>"; };
 		9D62E9E41DC93A3800C9E142 /* SolDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolDescription.swift; sourceTree = "<group>"; };
 		9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCache.swift; sourceTree = "<group>"; };
@@ -78,7 +86,9 @@
 		9D2338601DF5F0350073D67E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				9D2338A51DF5F79F0073D67E /* PlatformShims.swift */,
 				9DC0CD271DC92B4200C7B177 /* Model */,
+				9D2338A11DF5F3220073D67E /* Data Sources */,
 				9D62E9EF1DC9530C00C9E142 /* Operations */,
 				9D62E9DC1DC92F8700C9E142 /* Networking */,
 			);
@@ -150,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				9D23389B1DF5F1D90073D67E /* Storyboards */,
+				9D2338A81DF5FA5C0073D67E /* ImageCell.xib */,
 				9D23388F1DF5F1CC0073D67E /* Assets.xcassets */,
 				9D2338921DF5F1CC0073D67E /* Info.plist */,
 			);
@@ -171,6 +182,14 @@
 				9D2338901DF5F1CC0073D67E /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		9D2338A11DF5F3220073D67E /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338A21DF5F35E0073D67E /* MarsPhotoDataSource.swift */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 		9D62E9DC1DC92F8700C9E142 /* Networking */ = {
@@ -321,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2338AB1DF5FA5C0073D67E /* ImageCell.xib in Resources */,
 				9D23389D1DF5F1FC0073D67E /* Assets.xcassets in Resources */,
 				9D23389C1DF5F1F90073D67E /* Main.storyboard in Resources */,
 			);
@@ -345,6 +365,8 @@
 			files = (
 				9D2338841DF5F14F0073D67E /* AppDelegate.swift in Sources */,
 				9D23386E1DF5F0B00073D67E /* MarsRoverClient.swift in Sources */,
+				9D2338A41DF5F3D30073D67E /* MarsPhotoDataSource.swift in Sources */,
+				9D2338A71DF5F79F0073D67E /* PlatformShims.swift in Sources */,
 				9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */,
 				9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */,
 				9D23386D1DF5F0AD0073D67E /* ConcurrentOperation.swift in Sources */,
@@ -364,11 +386,13 @@
 				9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */,
 				9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */,
 				9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */,
+				9D2338A31DF5F35E0073D67E /* MarsPhotoDataSource.swift in Sources */,
 				9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */,
 				9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */,
 				9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */,
 				9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */,
 				9D23387C1DF5F1250073D67E /* MainViewController.swift in Sources */,
+				9D2338A61DF5F79F0073D67E /* PlatformShims.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +421,14 @@
 				9D2338911DF5F1CC0073D67E /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9D2338A81DF5FA5C0073D67E /* ImageCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D2338A91DF5FA5C0073D67E /* Base */,
+			);
+			name = ImageCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

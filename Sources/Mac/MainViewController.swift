@@ -10,4 +10,17 @@ import Cocoa
 
 class MainViewController: NSViewController {
 
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		dataSource = MarsPhotoDataSource(collectionView: collectionView)
+		collectionView.dataSource = dataSource
+		collectionView.delegate = dataSource
+		dataSource.loadData()
+	}
+	
+	// Properties
+	private var dataSource: MarsPhotoDataSource!
+	
+	@IBOutlet var collectionView: NSCollectionView!
 }
