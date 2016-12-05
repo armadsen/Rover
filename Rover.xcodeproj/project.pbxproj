@@ -7,40 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
+		9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */; };
+		9D23386A1DF5F0AA0073D67E /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */; };
+		9D23386B1DF5F0AA0073D67E /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
+		9D23386C1DF5F0AD0073D67E /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */; };
+		9D23386D1DF5F0AD0073D67E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */; };
+		9D23386E1DF5F0B00073D67E /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
+		9D23387A1DF5F1250073D67E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338771DF5F1250073D67E /* AppDelegate.swift */; };
+		9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338781DF5F1250073D67E /* ImageCollectionViewCell.swift */; };
+		9D23387C1DF5F1250073D67E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338791DF5F1250073D67E /* MainViewController.swift */; };
+		9D2338841DF5F14F0073D67E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23387E1DF5F12A0073D67E /* AppDelegate.swift */; };
+		9D2338931DF5F1CC0073D67E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338881DF5F1CC0073D67E /* Assets.xcassets */; };
+		9D2338941DF5F1CC0073D67E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338891DF5F1CC0073D67E /* LaunchScreen.storyboard */; };
+		9D2338951DF5F1CC0073D67E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D23388B1DF5F1CC0073D67E /* Main.storyboard */; };
+		9D23389C1DF5F1F90073D67E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2338901DF5F1CC0073D67E /* Main.storyboard */; };
+		9D23389D1DF5F1FC0073D67E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D23388F1DF5F1CC0073D67E /* Assets.xcassets */; };
+		9D23389F1DF5F2230073D67E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338851DF5F1980073D67E /* MainViewController.swift */; };
 		9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
-		9D62E9E01DC936A200C9E142 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DF1DC936A200C9E142 /* MainViewController.swift */; };
 		9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
-		9D62E9E81DC94E2300C9E142 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E71DC94E2300C9E142 /* ImageCollectionViewCell.swift */; };
 		9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
 		9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */; };
 		9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */; };
-		9DC0CD1B1DC9285600C7B177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0CD131DC9285600C7B177 /* Assets.xcassets */; };
-		9DC0CD1C1DC9285600C7B177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0CD141DC9285600C7B177 /* LaunchScreen.storyboard */; };
-		9DC0CD1D1DC9285600C7B177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0CD161DC9285600C7B177 /* Main.storyboard */; };
-		9DC0CD1F1DC9285600C7B177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD1A1DC9285600C7B177 /* AppDelegate.swift */; };
 		9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */; };
 		9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D2338511DF5F0150073D67E /* Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rover.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2338771DF5F1250073D67E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9D2338781DF5F1250073D67E /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D2338791DF5F1250073D67E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9D23387E1DF5F12A0073D67E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9D2338851DF5F1980073D67E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9D2338881DF5F1CC0073D67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D23388A1DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9D23388C1DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9D23388D1DF5F1CC0073D67E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D23388F1DF5F1CC0073D67E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D2338911DF5F1CC0073D67E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9D2338921DF5F1CC0073D67E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRoverClient.swift; sourceTree = "<group>"; };
-		9D62E9DF1DC936A200C9E142 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9D62E9E41DC93A3800C9E142 /* SolDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolDescription.swift; sourceTree = "<group>"; };
-		9D62E9E71DC94E2300C9E142 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = Sources/ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCache.swift; sourceTree = "<group>"; };
 		9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPhotoOperation.swift; sourceTree = "<group>"; };
 		9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		9DC0CCFD1DC9282900C7B177 /* Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rover.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DC0CD131DC9285600C7B177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9DC0CD151DC9285600C7B177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9DC0CD171DC9285600C7B177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9DC0CD181DC9285600C7B177 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DC0CD1A1DC9285600C7B177 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9D23384E1DF5F0150073D67E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DC0CCFA1DC9282900C7B177 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,29 +75,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D2338601DF5F0350073D67E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9DC0CD271DC92B4200C7B177 /* Model */,
+				9D62E9EF1DC9530C00C9E142 /* Operations */,
+				9D62E9DC1DC92F8700C9E142 /* Networking */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		9D2338761DF5F1250073D67E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338771DF5F1250073D67E /* AppDelegate.swift */,
+				9D2338811DF5F1330073D67E /* View Controllers */,
+				9D2338801DF5F12F0073D67E /* Views */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		9D23387D1DF5F12A0073D67E /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				9D23387E1DF5F12A0073D67E /* AppDelegate.swift */,
+				9D2338821DF5F13C0073D67E /* View Controllers */,
+				9D2338831DF5F1430073D67E /* Views */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		9D2338801DF5F12F0073D67E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338781DF5F1250073D67E /* ImageCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9D2338811DF5F1330073D67E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338791DF5F1250073D67E /* MainViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9D2338821DF5F13C0073D67E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338851DF5F1980073D67E /* MainViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9D2338831DF5F1430073D67E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9D2338871DF5F1CC0073D67E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9D23389A1DF5F1D30073D67E /* Storyboards */,
+				9D2338881DF5F1CC0073D67E /* Assets.xcassets */,
+				9D23388D1DF5F1CC0073D67E /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		9D23388E1DF5F1CC0073D67E /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				9D23389B1DF5F1D90073D67E /* Storyboards */,
+				9D23388F1DF5F1CC0073D67E /* Assets.xcassets */,
+				9D2338921DF5F1CC0073D67E /* Info.plist */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		9D23389A1DF5F1D30073D67E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338891DF5F1CC0073D67E /* LaunchScreen.storyboard */,
+				9D23388B1DF5F1CC0073D67E /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		9D23389B1DF5F1D90073D67E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9D2338901DF5F1CC0073D67E /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		9D62E9DC1DC92F8700C9E142 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */,
 			);
 			name = Networking;
-			sourceTree = "<group>";
-		};
-		9D62E9E11DC936A500C9E142 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9D62E9DF1DC936A200C9E142 /* MainViewController.swift */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		9D62E9E61DC94DFC00C9E142 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9D62E9E71DC94E2300C9E142 /* ImageCollectionViewCell.swift */,
-			);
-			name = Views;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		9D62E9EF1DC9530C00C9E142 /* Operations */ = {
@@ -98,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC0CCFD1DC9282900C7B177 /* Rover.app */,
+				9D2338511DF5F0150073D67E /* Rover.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,9 +211,8 @@
 		9DC0CD121DC9285600C7B177 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9DC0CD201DC9286B00C7B177 /* Storyboards */,
-				9DC0CD131DC9285600C7B177 /* Assets.xcassets */,
-				9DC0CD181DC9285600C7B177 /* Info.plist */,
+				9D2338871DF5F1CC0073D67E /* iOS */,
+				9D23388E1DF5F1CC0073D67E /* Mac */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -115,23 +220,11 @@
 		9DC0CD191DC9285600C7B177 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9DC0CD1A1DC9285600C7B177 /* AppDelegate.swift */,
-				9DC0CD271DC92B4200C7B177 /* Model */,
-				9D62E9EF1DC9530C00C9E142 /* Operations */,
-				9D62E9DC1DC92F8700C9E142 /* Networking */,
-				9D62E9E11DC936A500C9E142 /* View Controllers */,
-				9D62E9E61DC94DFC00C9E142 /* Views */,
+				9D2338601DF5F0350073D67E /* Shared */,
+				9D2338761DF5F1250073D67E /* iOS */,
+				9D23387D1DF5F12A0073D67E /* Mac */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		9DC0CD201DC9286B00C7B177 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				9DC0CD141DC9285600C7B177 /* LaunchScreen.storyboard */,
-				9DC0CD161DC9285600C7B177 /* Main.storyboard */,
-			);
-			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		9DC0CD271DC92B4200C7B177 /* Model */ = {
@@ -148,6 +241,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9D2338501DF5F0150073D67E /* RoverMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D23385F1DF5F0150073D67E /* Build configuration list for PBXNativeTarget "RoverMac" */;
+			buildPhases = (
+				9D23384D1DF5F0150073D67E /* Sources */,
+				9D23384E1DF5F0150073D67E /* Frameworks */,
+				9D23384F1DF5F0150073D67E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RoverMac;
+			productName = RoverMac;
+			productReference = 9D2338511DF5F0150073D67E /* Rover.app */;
+			productType = "com.apple.product-type.application";
+		};
 		9DC0CCFC1DC9282900C7B177 /* Rover */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DC0CD0F1DC9282900C7B177 /* Build configuration list for PBXNativeTarget "Rover" */;
@@ -175,6 +285,11 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = DevMountain;
 				TargetAttributes = {
+					9D2338501DF5F0150073D67E = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 357NQPN89X;
+						ProvisioningStyle = Automatic;
+					};
 					9DC0CCFC1DC9282900C7B177 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 357NQPN89X;
@@ -196,56 +311,90 @@
 			projectRoot = "";
 			targets = (
 				9DC0CCFC1DC9282900C7B177 /* Rover */,
+				9D2338501DF5F0150073D67E /* RoverMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9D23384F1DF5F0150073D67E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D23389D1DF5F1FC0073D67E /* Assets.xcassets in Resources */,
+				9D23389C1DF5F1F90073D67E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DC0CCFB1DC9282900C7B177 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC0CD1D1DC9285600C7B177 /* Main.storyboard in Resources */,
-				9DC0CD1B1DC9285600C7B177 /* Assets.xcassets in Resources */,
-				9DC0CD1C1DC9285600C7B177 /* LaunchScreen.storyboard in Resources */,
+				9D2338951DF5F1CC0073D67E /* Main.storyboard in Resources */,
+				9D2338931DF5F1CC0073D67E /* Assets.xcassets in Resources */,
+				9D2338941DF5F1CC0073D67E /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9D23384D1DF5F0150073D67E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D2338841DF5F14F0073D67E /* AppDelegate.swift in Sources */,
+				9D23386E1DF5F0B00073D67E /* MarsRoverClient.swift in Sources */,
+				9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */,
+				9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */,
+				9D23386D1DF5F0AD0073D67E /* ConcurrentOperation.swift in Sources */,
+				9D23386B1DF5F0AA0073D67E /* SolDescription.swift in Sources */,
+				9D23389F1DF5F2230073D67E /* MainViewController.swift in Sources */,
+				9D23386A1DF5F0AA0073D67E /* MarsPhoto.swift in Sources */,
+				9D23386C1DF5F0AD0073D67E /* FetchPhotoOperation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DC0CCF91DC9282900C7B177 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D23387A1DF5F1250073D67E /* AppDelegate.swift in Sources */,
 				9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */,
 				9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */,
 				9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */,
-				9DC0CD1F1DC9285600C7B177 /* AppDelegate.swift in Sources */,
 				9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */,
-				9D62E9E81DC94E2300C9E142 /* ImageCollectionViewCell.swift in Sources */,
-				9D62E9E01DC936A200C9E142 /* MainViewController.swift in Sources */,
 				9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */,
+				9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */,
 				9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */,
 				9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */,
+				9D23387C1DF5F1250073D67E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9DC0CD141DC9285600C7B177 /* LaunchScreen.storyboard */ = {
+		9D2338891DF5F1CC0073D67E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9DC0CD151DC9285600C7B177 /* Base */,
+				9D23388A1DF5F1CC0073D67E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		9DC0CD161DC9285600C7B177 /* Main.storyboard */ = {
+		9D23388B1DF5F1CC0073D67E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9DC0CD171DC9285600C7B177 /* Base */,
+				9D23388C1DF5F1CC0073D67E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9D2338901DF5F1CC0073D67E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D2338911DF5F1CC0073D67E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -253,6 +402,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9D23385D1DF5F0150073D67E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 357NQPN89X;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevMountain.RoverMac;
+				PRODUCT_NAME = Rover;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9D23385E1DF5F0150073D67E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 357NQPN89X;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevMountain.RoverMac;
+				PRODUCT_NAME = Rover;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		9DC0CD0D1DC9282900C7B177 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -351,7 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 357NQPN89X;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevMountain.Rover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -364,7 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 357NQPN89X;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DevMountain.Rover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -375,6 +558,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9D23385F1DF5F0150073D67E /* Build configuration list for PBXNativeTarget "RoverMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D23385D1DF5F0150073D67E /* Debug */,
+				9D23385E1DF5F0150073D67E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9DC0CCF81DC9282900C7B177 /* Build configuration list for PBXProject "Rover" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

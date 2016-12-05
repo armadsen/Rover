@@ -6,7 +6,7 @@
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class PhotoCache {
     
