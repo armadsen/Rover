@@ -21,9 +21,10 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 		pageController.delegate = self
 		pageController.transitionStyle = .stackHistory
 		pageController.arrangedObjects = [collectionViewController.dataSource]
+		currentViewController = collectionViewController
 		backButton.isEnabled = false
 	}
-	
+		
 	// MARK: Public Methods
 	
 	// MARK: CollectionViewControllerDelegate
@@ -77,6 +78,10 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 				detailVC.image = nil
 			}
 		}
+		
+		if let pagePresentable = viewController as? PagePresentable {
+			pagePresentable.pageController = pageC
+		}
 	}
 	
 	func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
@@ -89,12 +94,29 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 		} else {
 			backButton.isEnabled = true
 		}
-		
+
+		currentViewController = pageController.selectedViewController
+		self.view.window?.makeFirstResponder(self)
 	}
 	
 	// MARK: Private Methods
 	
 	// MARK: Public Properties
+	
+	private var touchBarObserver: Observe?
+	dynamic private(set) var currentViewController: NSViewController? {
+		willSet {
+			touchBarObserver = nil
+			self.touchBar = nil
+		}
+		didSet {
+			if let vc = currentViewController {
+				touchBarObserver = Observe(vc, keyPath: "touchBar", options: [.initial]) { (touchBar) in
+					self.touchBar = touchBar as? NSTouchBar
+				}
+			}
+		}
+	}
 	
 	// MARK: Private Properties
 	
@@ -112,5 +134,4 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 	
 	@IBOutlet var backButton: NSButton!
 	@IBOutlet var pageController: NSPageController!
-	
 }

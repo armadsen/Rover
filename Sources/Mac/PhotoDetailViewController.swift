@@ -8,7 +8,17 @@
 
 import Cocoa
 
-class PhotoDetailViewController: NSViewController {
+fileprivate extension NSTouchBarCustomizationIdentifier {
+	static let detailViewTouchBar = NSTouchBarCustomizationIdentifier("com.devmountain.rover.detailViewTouchBar")
+}
+
+fileprivate extension NSTouchBarItemIdentifier {
+	static let backButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.BackButton")
+	static let sharingService = NSTouchBarItemIdentifier("com.rover.TouchBarItem.SharingService")
+}
+
+
+class PhotoDetailViewController: NSViewController, PagePresentable {
 
 	// MARK: Overridden
 	
@@ -18,9 +28,22 @@ class PhotoDetailViewController: NSViewController {
 		updateViews()
 	}
 	
+	override func makeTouchBar() -> NSTouchBar? {
+		let touchBar = NSTouchBar()
+		touchBar.delegate = self
+		touchBar.customizationIdentifier = .detailViewTouchBar
+		touchBar.defaultItemIdentifiers = [.backButton, .sharingService, .otherItemsProxy]
+		touchBar.customizationAllowedItemIdentifiers = [.backButton, .sharingService, .otherItemsProxy]
+		return touchBar
+	}
+	
 	// MARK: Public Methods
 	
 	// MARK: Actions
+	
+	@IBAction func goBack(_ sender: Any) {
+		pageController?.navigateBack(sender)
+	}
 	
 	// MARK: Private Methods
 	
@@ -47,6 +70,8 @@ class PhotoDetailViewController: NSViewController {
 		}
 	}
 	
+	weak var pageController: NSPageController?
+	
 	// MARK: Private Properties
 	
 	// MARK: Outlets
@@ -56,4 +81,32 @@ class PhotoDetailViewController: NSViewController {
 	@IBOutlet var cameraLabel: NSTextField!
 	@IBOutlet var earthDateLabel: NSTextField!
 	
+}
+
+extension PhotoDetailViewController: NSTouchBarDelegate {
+	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+		let item: NSTouchBarItem
+		
+		switch identifier {
+		case NSTouchBarItemIdentifier.backButton:
+			let buttonItem = NSCustomTouchBarItem(identifier: identifier)
+			let backImage = NSImage(named: NSImageNameTouchBarGoBackTemplate)!
+			buttonItem.view = NSButton(image: backImage, target: self, action: #selector(goBack(_:)))
+			item = buttonItem
+		case NSTouchBarItemIdentifier.sharingService:
+			let sharingItem = NSSharingServicePickerTouchBarItem(identifier: identifier)
+			sharingItem.delegate = self
+			item = sharingItem
+		default:
+			return nil
+		}
+		
+		return item
+	}
+}
+
+extension PhotoDetailViewController: NSSharingServicePickerTouchBarItemDelegate {
+	func items(for pickerTouchBarItem: NSSharingServicePickerTouchBarItem) -> [Any] {
+		return []
+	}
 }

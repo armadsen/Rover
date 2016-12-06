@@ -10,6 +10,8 @@ import Foundation
 
 class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
+	static let DataLoadedNotification = NSNotification.Name("MarsPhotosDataSourceDataLoaded")
+	
 	init(client: MarsRoverClient = MarsRoverClient(), cache: PhotoCache = PhotoCache.sharedCache) {
 		self.client = client
 		self.cache = cache
@@ -110,7 +112,12 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
 	private(set) var photoReferences = [MarsPhotoReference]() {
 		didSet {
-			DispatchQueue.main.async { self.collectionView?.reloadData() }
+			DispatchQueue.main.async {
+				let nc = NotificationCenter.default
+				nc.post(name: MarsPhotosDataSource.DataLoadedNotification, object: self)
+
+				self.collectionView?.reloadData()
+			}
 		}
 	}
 
