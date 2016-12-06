@@ -16,6 +16,7 @@ fileprivate extension NSTouchBarItemIdentifier {
 	static let backButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.BackButton")
 	static let upButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.UpButton")
 	static let downButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.DownButton")
+	static let upDownGroup = NSTouchBarItemIdentifier("com.rover.TouchBarItem.UpDownGroup")
 	static let sharingService = NSTouchBarItemIdentifier("com.rover.TouchBarItem.SharingService")
 }
 
@@ -34,8 +35,8 @@ class PhotoDetailViewController: NSViewController, PagePresentable {
 		let touchBar = NSTouchBar()
 		touchBar.delegate = self
 		touchBar.customizationIdentifier = .detailViewTouchBar
-		touchBar.defaultItemIdentifiers = [.backButton, .flexibleSpace, .downButton, .upButton, .otherItemsProxy]
-		touchBar.customizationAllowedItemIdentifiers = [.backButton, .flexibleSpace, .downButton, .upButton, .sharingService, .otherItemsProxy, .flexibleSpace]
+		touchBar.defaultItemIdentifiers = [.backButton, .flexibleSpace, .upDownGroup, .otherItemsProxy]
+		touchBar.customizationAllowedItemIdentifiers = [.backButton, .flexibleSpace, .upDownGroup, .sharingService, .otherItemsProxy, .flexibleSpace]
 		return touchBar
 	}
 	
@@ -125,6 +126,12 @@ extension PhotoDetailViewController: NSTouchBarDelegate {
 			let image = NSImage(named: NSImageNameTouchBarGoBackTemplate)!
 			buttonItem.view = NSButton(image: image, target: self, action: #selector(goBack(_:)))
 			item = buttonItem
+		case NSTouchBarItemIdentifier.upDownGroup:
+			let upItem = self.touchBar(touchBar, makeItemForIdentifier: .upButton)!
+			let downItem = self.touchBar(touchBar, makeItemForIdentifier: .downButton)!
+			let groupItem = NSGroupTouchBarItem.groupItem(withIdentifier: .upDownGroup, items: [downItem, upItem])
+			groupItem.customizationLabel = "Navigation"
+			item = groupItem
 		case NSTouchBarItemIdentifier.upButton:
 			let buttonItem = NSCustomTouchBarItem(identifier: identifier)
 			buttonItem.customizationLabel = "Up"
