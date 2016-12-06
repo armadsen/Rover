@@ -107,6 +107,7 @@ extension PhotoDetailViewController: NSTouchBarDelegate {
 
 extension PhotoDetailViewController: NSSharingServicePickerTouchBarItemDelegate {
 	func items(for pickerTouchBarItem: NSSharingServicePickerTouchBarItem) -> [Any] {
-		return []
+    guard let image = image else { return [] }
+		return [image]
 	}
 }

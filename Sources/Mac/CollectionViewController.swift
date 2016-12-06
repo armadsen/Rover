@@ -14,7 +14,6 @@ fileprivate extension NSTouchBarCustomizationIdentifier {
 
 fileprivate extension NSTouchBarItemIdentifier {
 	static let scrubber = NSTouchBarItemIdentifier("com.rover.TouchBarItem.CollectionViewScrubber")
-	static let sharingService = NSTouchBarItemIdentifier("com.rover.TouchBarItem.SharingService")
 }
 
 protocol CollectionViewControllerDelegate: class {
@@ -37,8 +36,8 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 		let touchBar = NSTouchBar()
 		touchBar.delegate = self
 		touchBar.customizationIdentifier = .collectionViewTouchBar
-		touchBar.defaultItemIdentifiers = [.scrubber, .sharingService, .otherItemsProxy]
-		touchBar.customizationAllowedItemIdentifiers = [.scrubber, .sharingService, .otherItemsProxy]
+		touchBar.defaultItemIdentifiers = [.scrubber, .otherItemsProxy]
+		touchBar.customizationAllowedItemIdentifiers = [.scrubber, .otherItemsProxy]
 		
 		return touchBar
 	}
@@ -54,6 +53,7 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 	
 	func collectionView(_ collectionView: CollectionView, didEndDisplaying cell: CollectionViewCell, forItemAt indexPath: IndexPath) {
 		dataSource.cancelLoading(for: indexPath)
+    cell.imageView?.image = nil
 	}
 	
 	// Notifications
@@ -83,21 +83,11 @@ extension CollectionViewController: NSTouchBarDelegate {
 			scrubberItem.customizationLabel = "Photo Scrubber"
 			scrubberItem.scrubber?.delegate = self
 			item = scrubberItem
-		case NSTouchBarItemIdentifier.sharingService:
-			let sharingItem = NSSharingServicePickerTouchBarItem(identifier: identifier)
-			sharingItem.delegate = self
-			item = sharingItem
 		default:
 			return nil
 		}
 		
 		return item
-	}
-}
-
-extension CollectionViewController: NSSharingServicePickerTouchBarItemDelegate {
-	func items(for pickerTouchBarItem: NSSharingServicePickerTouchBarItem) -> [Any] {
-		return []
 	}
 }
 
