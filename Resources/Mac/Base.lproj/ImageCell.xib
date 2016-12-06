@@ -10,12 +10,12 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="178" height="127"/>
+            <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W3T-q8-wB6">
-                    <rect key="frame" x="0.0" y="0.0" width="178" height="127"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FGf-w0-WJn"/>
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="MarsPlaceholder" id="FGf-w0-WJn"/>
                 </imageView>
             </subviews>
             <constraints>
@@ -26,11 +26,14 @@
             </constraints>
             <point key="canvasLocation" x="-150" y="-3.5"/>
         </customView>
-        <collectionViewItem id="B0l-ju-EKv">
+        <collectionViewItem id="B0l-ju-EKv" customClass="ImageCollectionViewItem" customModule="Rover" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="W3T-q8-wB6" id="lZn-yr-A3U"/>
                 <outlet property="view" destination="c22-O7-iKe" id="myk-Qa-LPk"/>
             </connections>
         </collectionViewItem>
     </objects>
+    <resources>
+        <image name="MarsPlaceholder" width="450" height="450"/>
+    </resources>
 </document>

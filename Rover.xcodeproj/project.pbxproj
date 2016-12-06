@@ -48,6 +48,7 @@
 		9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */; };
 		9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */; };
 		9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */; };
+		9DD4DBA21DF7261E00549FAB /* ImageCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DBA11DF7261E00549FAB /* ImageCollectionViewItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		9DC0CCFD1DC9282900C7B177 /* Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRover.swift; sourceTree = "<group>"; };
+		9DD4DBA11DF7261E00549FAB /* ImageCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				9D2338B21DF603D90073D67E /* MainViewController.swift */,
 				9D2338851DF5F1980073D67E /* CollectionViewController.swift */,
+				9DD4DBA11DF7261E00549FAB /* ImageCollectionViewItem.swift */,
 				9D2338B41DF605D50073D67E /* PhotoDetailViewController.swift */,
 				9D2338C61DF680AA0073D67E /* PagePresentable.swift */,
 			);
@@ -410,6 +413,7 @@
 				9D2338B51DF605D50073D67E /* PhotoDetailViewController.swift in Sources */,
 				9D2338A41DF5F3D30073D67E /* MarsPhotosDataSource.swift in Sources */,
 				9D2338A71DF5F79F0073D67E /* PlatformShims.swift in Sources */,
+				9DD4DBA21DF7261E00549FAB /* ImageCollectionViewItem.swift in Sources */,
 				9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */,
 				9D2338B31DF603D90073D67E /* MainViewController.swift in Sources */,
 				9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */,
@@ -649,6 +653,7 @@
 				9D23385E1DF5F0150073D67E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DC0CCF81DC9282900C7B177 /* Build configuration list for PBXProject "Rover" */ = {
 			isa = XCConfigurationList;

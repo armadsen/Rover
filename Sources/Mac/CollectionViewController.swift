@@ -53,7 +53,6 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 	
 	func collectionView(_ collectionView: CollectionView, didEndDisplaying cell: CollectionViewCell, forItemAt indexPath: IndexPath) {
 		dataSource.cancelLoading(for: indexPath)
-    cell.imageView?.image = nil
 	}
 	
 	// Notifications
