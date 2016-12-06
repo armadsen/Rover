@@ -9,16 +9,16 @@
 import UIKit
 
 class CollectionViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		
-		dataSource = MarsPhotosDataSource()
-		collectionView.dataSource = dataSource
-    }
-    
-    // Properties
-	private var dataSource: MarsPhotosDataSource!
 	
-    @IBOutlet var collectionView: UICollectionView!
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		collectionView.dataSource = dataSource
+		dataSource.collectionView = collectionView
+	}
+	
+	// Properties
+	private let dataSource = MarsPhotosDataSource()
+	
+	@IBOutlet var collectionView: UICollectionView!
 }
