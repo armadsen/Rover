@@ -12,8 +12,8 @@ class PhotoScrubberBarItem: NSCustomTouchBarItem, NSScrubberDataSource, NSScrubb
 	
 	private static let itemViewIdentifier = "ImageItemViewIdentifier"
 	
-	init(identifier: NSTouchBarItemIdentifier, dataSource: MarsPhotosDataSource) {
-		self.dataSource = dataSource
+	init(identifier: NSTouchBarItemIdentifier, photosProvider: PhotosProvider = PhotosProvider.sharedProvider) {
+		self.photosProvider = photosProvider
 		
 		super.init(identifier: identifier)
 		
@@ -28,7 +28,7 @@ class PhotoScrubberBarItem: NSCustomTouchBarItem, NSScrubberDataSource, NSScrubb
 	}
 	
 	required init?(coder: NSCoder) {
-		self.dataSource = MarsPhotosDataSource()
+		self.photosProvider = PhotosProvider.sharedProvider
 		super.init(coder: coder)
 	}
 	
@@ -45,14 +45,14 @@ class PhotoScrubberBarItem: NSCustomTouchBarItem, NSScrubberDataSource, NSScrubb
 	// MARK: NSScrubberDataSource
 	
 	func numberOfItems(for scrubber: NSScrubber) -> Int {
-		return dataSource.photoReferences.count
+		return photosProvider.photoReferences.count
 	}
 	
 	func scrubber(_ scrubber: NSScrubber, viewForItemAt index: Int) -> NSScrubberItemView {
 		let itemView = scrubber.makeItem(withIdentifier: PhotoScrubberBarItem.itemViewIdentifier, owner: nil) as! ThumbnailItemView
-		let photoRef = dataSource.photoReferences[index]
-		if let imageData = PhotoCache.sharedCache.imageData(for: photoRef.id),
-			let image = NSImage(data: imageData) {
+		let photoRef = photosProvider.photoReferences[index]
+		itemView.image = nil
+		photosProvider.image(for: photoRef) { image in
 			itemView.image = image
 		}
 		return itemView
@@ -64,7 +64,7 @@ class PhotoScrubberBarItem: NSCustomTouchBarItem, NSScrubberDataSource, NSScrubb
 	
 	// MARK: Private Properties
 	
-	private let dataSource: MarsPhotosDataSource
+	private let photosProvider: PhotosProvider
 	
 	// MARK: Outlets
 

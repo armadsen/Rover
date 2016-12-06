@@ -12,33 +12,23 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
 	static let DataLoadedNotification = NSNotification.Name("MarsPhotosDataSourceDataLoaded")
 	
-	init(client: MarsRoverClient = MarsRoverClient(), cache: PhotoCache = PhotoCache.sharedCache) {
-		self.client = client
-		self.cache = cache
+	init(photosProvider: PhotosProvider = PhotosProvider.sharedProvider) {
+		self.photosProvider = photosProvider
+		
+		super.init()
+		
+		let nc = NotificationCenter.default
+		nc.addObserver(self, selector: #selector(dataDidLoad(_:)), name: PhotosProvider.DataLoadedNotification, object: photosProvider)
+		photosProvider.loadDataIfNeeded()
 	}
 	
 	// MARK: Overridden
 	
 	// MARK: Public Methods
 	
-	private var hasLoadedData = false
-	func loadDataIfNeeded() {
-		guard !hasLoadedData else { return }
-		
-		client.fetchMarsRover(named: "curiosity") { (rover, error) in
-			if let error = error {
-				NSLog("Error fetching info for curiosity: \(error)")
-				return
-			}
-			
-			self.roverInfo = rover
-			self.hasLoadedData = true
-		}
-	}
-	
-	func cancelOperations(for indexPath: IndexPath) {
+	func cancelLoading(for indexPath: IndexPath) {
 		let photoRef = photoReferences[indexPath.item]
-		operations[photoRef.id]?.cancel()
+		photosProvider.cancelOperations(for: photoRef)
 	}
 	
 	// MARK: CollectionViewDataSource
@@ -48,7 +38,7 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	}
 	
 	func collectionView(_ collectionView: CollectionView, numberOfItemsInSection section: Int) -> Int {
-		return photoReferences.count
+		return photosProvider.photoReferences.count
 	}
 
 	#if os(iOS)
@@ -70,82 +60,36 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	// MARK: Private Methods
 	
 	private func configure(cell: ImageCollectionViewCell, forItemAt indexPath: IndexPath) {
-		let photoRef = photoReferences[indexPath.item]
-		if let imageData = cache.imageData(for: photoRef.id),
-			let image = Image(data: imageData) {
+		let photoRef = photosProvider.photoReferences[indexPath.item]
+		
+		photosProvider.image(for: photoRef) { (image) in
+			if let currentIndexPath = self.collectionView?.indexPath(for: cell),
+				currentIndexPath != indexPath {
+				print("Got image for now-reused cell")
+				return // Cell has been reused
+			}
+			
 			cell.imageView?.image = image
-		} else {
-			// Start an operation to fetch image data
-			let fetchOp = FetchPhotoOperation(photoReference: photoRef)
-			let cacheOp = BlockOperation {
-				if let data = fetchOp.imageData {
-					self.cache.cache(imageData: data, for: photoRef.id)
-				}
-			}
-			let uiUpdateOp = BlockOperation {
-				defer { self.operations.removeValue(forKey: photoRef.id) }
-				
-				if let currentIndexPath = self.collectionView?.indexPath(for: cell),
-					currentIndexPath != indexPath {
-					print("Got image for now-reused cell")
-					return // Cell has been reused
-				}
-				
-				if let data = fetchOp.imageData,
-					let image = Image(data: data) {
-					cell.imageView?.image = image
-				}
-			}
-			
-			cacheOp.addDependency(fetchOp)
-			uiUpdateOp.addDependency(fetchOp)
-			
-			photoFetchQueue.addOperation(fetchOp)
-			photoFetchQueue.addOperation(cacheOp)
-			OperationQueue.main.addOperation(uiUpdateOp)
-			
-			operations[photoRef.id] = fetchOp
 		}
+	}
+	
+	// MARK: Notifications
+	
+	func dataDidLoad(_ notification: NSNotification) {
+		collectionView?.reloadData()
+		
+		let nc = NotificationCenter.default
+		nc.post(name: MarsPhotosDataSource.DataLoadedNotification, object: self)
 	}
 	
 	// MARK: Public Properties
 	
-	private(set) var photoReferences = [MarsPhotoReference]() {
-		didSet {
-			DispatchQueue.main.async {
-				let nc = NotificationCenter.default
-				nc.post(name: MarsPhotosDataSource.DataLoadedNotification, object: self)
-
-				self.collectionView?.reloadData()
-			}
-		}
-	}
-
+	var photoReferences: [MarsPhotoReference] { return photosProvider.photoReferences }
 	
 	// MARK: Private Properties
 	
 	var collectionView: CollectionView?
-	private let client: MarsRoverClient
-	private let cache: PhotoCache
-	private let photoFetchQueue = OperationQueue()
-	private var operations = [Int : Operation]()
-	
-	private var roverInfo: MarsRover? = nil {
-		didSet {
-			solDescription = roverInfo?.solDescriptions[10]
-		}
-	}
-	private var solDescription: SolDescription? = nil {
-		didSet {
-			if let rover = roverInfo,
-				let sol = solDescription?.sol {
-				client.fetchPhotos(from: rover, onSol: sol) { (photoRefs, error) in
-					if let e = error { NSLog("Error fetching photos for \(rover.name) on sol \(sol): \(e)"); return }
-					self.photoReferences = photoRefs ?? []
-				}
-			}
-		}
-	}
+	let photosProvider: PhotosProvider
 	
 	// MARK: Outlets
 	

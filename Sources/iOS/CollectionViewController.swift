@@ -15,7 +15,6 @@ class CollectionViewController: UIViewController {
 		
 		dataSource = MarsPhotosDataSource()
 		collectionView.dataSource = dataSource
-		dataSource.loadDataIfNeeded()
     }
     
     // Properties

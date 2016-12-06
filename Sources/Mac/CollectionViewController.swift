@@ -28,7 +28,6 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 		
 		dataSource.collectionView = collectionView
 		collectionView?.dataSource = dataSource
-		dataSource.loadDataIfNeeded()
 		
 		let nc = NotificationCenter.default
 		nc.addObserver(self, selector: #selector(dataLoaded(_:)), name: MarsPhotosDataSource.DataLoadedNotification, object: dataSource)
@@ -54,7 +53,7 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 	}
 	
 	func collectionView(_ collectionView: CollectionView, didEndDisplaying cell: CollectionViewCell, forItemAt indexPath: IndexPath) {
-		dataSource.cancelOperations(for: indexPath)
+		dataSource.cancelLoading(for: indexPath)
 	}
 	
 	// Notifications
@@ -80,7 +79,7 @@ extension CollectionViewController: NSTouchBarDelegate {
 		
 		switch identifier {
 		case NSTouchBarItemIdentifier.scrubber:
-			let scrubberItem = PhotoScrubberBarItem(identifier: identifier, dataSource: dataSource)
+			let scrubberItem = PhotoScrubberBarItem(identifier: identifier)
 			scrubberItem.customizationLabel = "Photo Scrubber"
 			scrubberItem.scrubber?.delegate = self
 			item = scrubberItem
