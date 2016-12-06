@@ -14,6 +14,8 @@ fileprivate extension NSTouchBarCustomizationIdentifier {
 
 fileprivate extension NSTouchBarItemIdentifier {
 	static let backButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.BackButton")
+	static let upButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.UpButton")
+	static let downButton = NSTouchBarItemIdentifier("com.rover.TouchBarItem.DownButton")
 	static let sharingService = NSTouchBarItemIdentifier("com.rover.TouchBarItem.SharingService")
 }
 
@@ -32,8 +34,8 @@ class PhotoDetailViewController: NSViewController, PagePresentable {
 		let touchBar = NSTouchBar()
 		touchBar.delegate = self
 		touchBar.customizationIdentifier = .detailViewTouchBar
-		touchBar.defaultItemIdentifiers = [.backButton, .sharingService, .otherItemsProxy]
-		touchBar.customizationAllowedItemIdentifiers = [.backButton, .sharingService, .otherItemsProxy]
+		touchBar.defaultItemIdentifiers = [.backButton, .flexibleSpace, .downButton, .upButton, .otherItemsProxy]
+		touchBar.customizationAllowedItemIdentifiers = [.backButton, .flexibleSpace, .downButton, .upButton, .sharingService, .otherItemsProxy, .flexibleSpace]
 		return touchBar
 	}
 	
@@ -43,6 +45,17 @@ class PhotoDetailViewController: NSViewController, PagePresentable {
 	
 	@IBAction func goBack(_ sender: Any) {
 		pageController?.navigateBack(sender)
+	}
+	
+	@IBAction func goUp(_ sender: Any) {
+		guard let index = photoIndex, index > 0 else { return }
+		photoInfo = photosProvider.photoReferences[index-1]
+	}
+	
+	@IBAction func goDown(_ sender: Any) {
+		let photoRefs = photosProvider.photoReferences
+		guard let index = photoIndex, index+1 < photoRefs.count else { return }
+		photoInfo = photoRefs[index+1]
 	}
 	
 	// MARK: Private Methods
@@ -56,23 +69,41 @@ class PhotoDetailViewController: NSViewController, PagePresentable {
 		earthDateLabel.objectValue = photoInfo?.earthDate
 	}
 	
-	// MARK: Public Properties
-	
-	var photoInfo: MarsPhotoReference? {
-		didSet {
-			updateViews()
+	private func fetchNewPhoto() {
+		guard let photoRef = photoInfo else { return }
+
+		photosProvider.image(for: photoRef) { image in
+			guard photoRef == self.photoInfo else { return }
+			self.image = image
 		}
 	}
 	
-	var image: Image? {
+	// MARK: Public Properties
+	
+	var photosProvider = PhotosProvider.sharedProvider
+	
+	var photoInfo: MarsPhotoReference? {
 		didSet {
+			image = nil
 			updateViews()
+			fetchNewPhoto()
 		}
+	}
+	
+	var photoIndex: Int? {
+		guard let photoRef = photoInfo else { return nil }
+		return photosProvider.photoReferences.index(of: photoRef)
 	}
 	
 	weak var pageController: NSPageController?
 	
 	// MARK: Private Properties
+	
+	fileprivate var image: Image? {
+		didSet {
+			updateViews()
+		}
+	}
 	
 	// MARK: Outlets
 	@IBOutlet var imageView: NSImageView!
@@ -90,8 +121,21 @@ extension PhotoDetailViewController: NSTouchBarDelegate {
 		switch identifier {
 		case NSTouchBarItemIdentifier.backButton:
 			let buttonItem = NSCustomTouchBarItem(identifier: identifier)
-			let backImage = NSImage(named: NSImageNameTouchBarGoBackTemplate)!
-			buttonItem.view = NSButton(image: backImage, target: self, action: #selector(goBack(_:)))
+			buttonItem.customizationLabel = "Back"
+			let image = NSImage(named: NSImageNameTouchBarGoBackTemplate)!
+			buttonItem.view = NSButton(image: image, target: self, action: #selector(goBack(_:)))
+			item = buttonItem
+		case NSTouchBarItemIdentifier.upButton:
+			let buttonItem = NSCustomTouchBarItem(identifier: identifier)
+			buttonItem.customizationLabel = "Up"
+			let image = NSImage(named: NSImageNameTouchBarGoUpTemplate)!
+			buttonItem.view = NSButton(image: image, target: self, action: #selector(goUp(_:)))
+			item = buttonItem
+		case NSTouchBarItemIdentifier.downButton:
+			let buttonItem = NSCustomTouchBarItem(identifier: identifier)
+			buttonItem.customizationLabel = "Down"
+			let image = NSImage(named: NSImageNameTouchBarGoDownTemplate)!
+			buttonItem.view = NSButton(image: image, target: self, action: #selector(goDown(_:)))
 			item = buttonItem
 		case NSTouchBarItemIdentifier.sharingService:
 			let sharingItem = NSSharingServicePickerTouchBarItem(identifier: identifier)

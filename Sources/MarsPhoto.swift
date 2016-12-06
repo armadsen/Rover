@@ -47,3 +47,18 @@ extension MarsPhotoReference {
     }
     
 }
+
+extension MarsPhotoReference: Hashable {
+	var hashValue: Int {
+		return id
+	}
+}
+
+func ==(rhs: MarsPhotoReference, lhs: MarsPhotoReference) -> Bool {
+	if rhs.id != lhs.id { return false }
+	if rhs.sol != lhs.sol { return false }
+	if rhs.cameraName != lhs.cameraName { return false }
+	if rhs.earthDate != lhs.earthDate { return false }
+	
+	return true
+}

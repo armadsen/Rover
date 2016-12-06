@@ -72,11 +72,6 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 		} else */ if let photoRef = object as? MarsPhotoReference,
 			let detailVC = viewController as? PhotoDetailViewController {
 			detailVC.photoInfo = photoRef
-			if let imageData = PhotoCache.sharedCache.imageData(for: photoRef.id) {
-				detailVC.image = NSImage(data: imageData)
-			} else {
-				detailVC.image = nil
-			}
 		}
 		
 		if let pagePresentable = viewController as? PagePresentable {
@@ -90,7 +85,6 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 		if pageController.selectedIndex == 0 {
 			backButton.isEnabled = false
 			detailViewController.photoInfo = nil
-			detailViewController.image = nil
 		} else {
 			backButton.isEnabled = true
 		}
