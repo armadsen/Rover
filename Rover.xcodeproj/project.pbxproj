@@ -12,8 +12,6 @@
 		9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
 		9D62E9E81DC94E2300C9E142 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E71DC94E2300C9E142 /* ImageCollectionViewCell.swift */; };
 		9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
-		9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */; };
-		9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */; };
 		9DC0CD1B1DC9285600C7B177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0CD131DC9285600C7B177 /* Assets.xcassets */; };
 		9DC0CD1C1DC9285600C7B177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0CD141DC9285600C7B177 /* LaunchScreen.storyboard */; };
 		9DC0CD1D1DC9285600C7B177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0CD161DC9285600C7B177 /* Main.storyboard */; };
@@ -28,8 +26,6 @@
 		9D62E9E41DC93A3800C9E142 /* SolDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolDescription.swift; sourceTree = "<group>"; };
 		9D62E9E71DC94E2300C9E142 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = Sources/ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCache.swift; sourceTree = "<group>"; };
-		9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPhotoOperation.swift; sourceTree = "<group>"; };
-		9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		9DC0CCFD1DC9282900C7B177 /* Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0CD131DC9285600C7B177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC0CD151DC9285600C7B177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,15 +72,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		9D62E9EF1DC9530C00C9E142 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */,
-				9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */,
-			);
-			name = Operations;
-			sourceTree = "<group>";
-		};
 		9DC0CCF41DC9282900C7B177 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +104,6 @@
 			children = (
 				9DC0CD1A1DC9285600C7B177 /* AppDelegate.swift */,
 				9DC0CD271DC92B4200C7B177 /* Model */,
-				9D62E9EF1DC9530C00C9E142 /* Operations */,
 				9D62E9DC1DC92F8700C9E142 /* Networking */,
 				9D62E9E11DC936A500C9E142 /* View Controllers */,
 				9D62E9E61DC94DFC00C9E142 /* Views */,
@@ -220,14 +206,12 @@
 			files = (
 				9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */,
 				9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */,
-				9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */,
 				9DC0CD1F1DC9285600C7B177 /* AppDelegate.swift in Sources */,
 				9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */,
 				9D62E9E81DC94E2300C9E142 /* ImageCollectionViewCell.swift in Sources */,
 				9D62E9E01DC936A200C9E142 /* MainViewController.swift in Sources */,
 				9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */,
 				9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */,
-				9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

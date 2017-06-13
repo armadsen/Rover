@@ -42,8 +42,12 @@ extension MarsPhotoReference {
             let imageURL = URL(string: imageURLString) else {
                 return nil;
         }
-        
-        self.init(id: id, sol: sol, cameraName: cameraName, earthDate: earthDate, imageURL: imageURL)
+		
+		// Change image URL scheme to https
+		var urlComps = URLComponents(url: imageURL, resolvingAgainstBaseURL: true)!
+		urlComps.scheme = "https"
+		
+        self.init(id: id, sol: sol, cameraName: cameraName, earthDate: earthDate, imageURL: urlComps.url!)
     }
     
 }
