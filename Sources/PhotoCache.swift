@@ -13,7 +13,7 @@ class PhotoCache {
 	static let sharedCache = PhotoCache()
     
     func cache(imageData: Data, for id: Int) {
-        cacheQueue.sync {
+        cacheQueue.async {
             self.cache[id] = imageData
         }
     }
