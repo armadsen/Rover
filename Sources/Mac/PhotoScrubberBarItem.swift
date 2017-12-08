@@ -12,13 +12,13 @@ class PhotoScrubberBarItem: NSCustomTouchBarItem, NSScrubberDataSource, NSScrubb
 	
 	private static let itemViewIdentifier = "ImageItemViewIdentifier"
 	
-	init(identifier: NSTouchBarItemIdentifier, photosProvider: PhotosProvider = PhotosProvider.sharedProvider) {
+	init(identifier: NSTouchBarItem.Identifier, photosProvider: PhotosProvider = PhotosProvider.sharedProvider) {
 		self.photosProvider = photosProvider
 		
 		super.init(identifier: identifier)
 		
 		let scrubber = NSScrubber()
-		scrubber.register(ThumbnailItemView.self, forItemIdentifier: PhotoScrubberBarItem.itemViewIdentifier)
+		scrubber.register(ThumbnailItemView.self, forItemIdentifier: NSUserInterfaceItemIdentifier(rawValue: PhotoScrubberBarItem.itemViewIdentifier))
 		scrubber.mode = .free
 		scrubber.selectionBackgroundStyle = .roundedBackground
 		scrubber.delegate = self
@@ -49,7 +49,7 @@ class PhotoScrubberBarItem: NSCustomTouchBarItem, NSScrubberDataSource, NSScrubb
 	}
 	
 	func scrubber(_ scrubber: NSScrubber, viewForItemAt index: Int) -> NSScrubberItemView {
-		let itemView = scrubber.makeItem(withIdentifier: PhotoScrubberBarItem.itemViewIdentifier, owner: nil) as! ThumbnailItemView
+		let itemView = scrubber.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: PhotoScrubberBarItem.itemViewIdentifier), owner: nil) as! ThumbnailItemView
 		let photoRef = photosProvider.photoReferences[index]
 		itemView.image = nil
 		photosProvider.image(for: photoRef) { image in

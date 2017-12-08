@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if os(OSX)
+import Cocoa
+#endif
 
 class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
@@ -49,7 +52,7 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	}
 	#else
 	func collectionView(_ collectionView: CollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> CollectionViewCell {
-		let cell = collectionView.makeItem(withIdentifier: "ImageCell", for: indexPath)
+		let cell = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ImageCell"), for: indexPath)
 		configure(cell: cell, forItemAt: indexPath)
 		return cell
 	}
@@ -75,7 +78,7 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
 	// MARK: Notifications
 	
-	func dataDidLoad(_ notification: NSNotification) {
+	@objc func dataDidLoad(_ notification: NSNotification) {
 		collectionView?.reloadData()
 		
 		let nc = NotificationCenter.default

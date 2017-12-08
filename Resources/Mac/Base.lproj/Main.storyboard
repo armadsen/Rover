@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -669,6 +669,9 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="yui-GM-Ccs"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="Gd2-iu-GIp" kind="relationship" relationship="window.shadowedContentViewController" id="7Y2-rz-JQl"/>
@@ -703,6 +706,7 @@
                         <constraints>
                             <constraint firstItem="Xd4-ma-R9j" firstAttribute="top" secondItem="zxJ-7m-4xV" secondAttribute="top" constant="20" id="CQX-6P-fOx"/>
                             <constraint firstItem="Xd4-ma-R9j" firstAttribute="leading" secondItem="zxJ-7m-4xV" secondAttribute="leading" constant="20" id="GWH-CU-yxo"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xd4-ma-R9j" secondAttribute="trailing" constant="20" symbolic="YES" id="H4Y-9L-v2G"/>
                             <constraint firstItem="ih9-m4-1ux" firstAttribute="top" secondItem="Xd4-ma-R9j" secondAttribute="bottom" constant="20" id="NCV-J2-Opg"/>
                             <constraint firstAttribute="trailing" secondItem="ih9-m4-1ux" secondAttribute="trailing" id="SuX-vz-j5f"/>
                             <constraint firstAttribute="bottom" secondItem="ih9-m4-1ux" secondAttribute="bottom" id="mkG-Aa-beP"/>
@@ -739,7 +743,7 @@
                                     <subviews>
                                         <collectionView selectable="YES" id="egV-95-w03">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="268"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="bNS-Vv-Q2v">
                                                 <size key="itemSize" width="200" height="200"/>
                                             </collectionViewFlowLayout>

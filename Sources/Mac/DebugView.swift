@@ -14,7 +14,7 @@ class DebugView: NSView {
         super.draw(dirtyRect)
 
 		NSColor.green.set()
-		NSRectFill(dirtyRect)
+		dirtyRect.fill()
     }
     
 }

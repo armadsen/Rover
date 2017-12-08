@@ -15,8 +15,8 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		collectionViewController = storyboard?.instantiateController(withIdentifier: "CollectionViewController") as? CollectionViewController
-		detailViewController = storyboard?.instantiateController(withIdentifier: "PhotoDetailViewController") as? PhotoDetailViewController
+		collectionViewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "CollectionViewController")) as? CollectionViewController
+		detailViewController = storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PhotoDetailViewController")) as? PhotoDetailViewController
 		
 		pageController.delegate = self
 		pageController.transitionStyle = .stackHistory
@@ -47,16 +47,16 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 		case detailView
 	}
 	
-	func pageController(_ pageController: NSPageController, identifierFor object: Any) -> String {
+	func pageController(_ pageController: NSPageController, identifierFor object: Any) -> NSPageController.ObjectIdentifier {
 		if object is MarsPhotosDataSource {
-			return PageIdentifier.collectionView.rawValue
+			return NSPageController.ObjectIdentifier(rawValue: PageIdentifier.collectionView.rawValue)
 		} else {
-			return PageIdentifier.detailView.rawValue
+			return NSPageController.ObjectIdentifier(rawValue: PageIdentifier.detailView.rawValue)
 		}
 	}
 	
-	func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
-		guard let identifier = PageIdentifier(rawValue: identifier) else { return NSViewController() }
+	func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
+		guard let identifier = PageIdentifier(rawValue: identifier.rawValue) else { return NSViewController() }
 		switch identifier {
 		case .collectionView:
 			return collectionViewController
@@ -98,7 +98,7 @@ class MainViewController: NSViewController, NSPageControllerDelegate, Collection
 	// MARK: Public Properties
 	
 	private var touchBarObserver: Observe?
-	dynamic private(set) var currentViewController: NSViewController? {
+	@objc dynamic private(set) var currentViewController: NSViewController? {
 		willSet {
 			touchBarObserver = nil
 			self.touchBar = nil

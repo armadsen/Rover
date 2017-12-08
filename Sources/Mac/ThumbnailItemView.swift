@@ -59,19 +59,19 @@ class ThumbnailItemView: NSScrubberItemView {
         image = nil
         thumbnail = NSImage(size: frameRect.size)
         imageView = NSImageView(image: thumbnail)
-        imageView.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+        imageView.autoresizingMask = [NSView.AutoresizingMask.width, NSView.AutoresizingMask.height]
         spinner = NSProgressIndicator()
         
         super.init(frame: frameRect)
         
         spinner.isIndeterminate = true
-        spinner.style = .spinningStyle
+        spinner.style = .spinning
         spinner.sizeToFit()
         spinner.frame = bounds.insetBy(dx: (bounds.width - spinner.frame.width)/2, dy: (bounds.height - spinner.frame.height)/2)
         spinner.isHidden = true
         spinner.controlSize = .small
-        spinner.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
-        spinner.autoresizingMask = [.viewMinXMargin, .viewMaxXMargin, .viewMinYMargin, .viewMaxXMargin]
+        spinner.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
+        spinner.autoresizingMask = [NSView.AutoresizingMask.minXMargin, NSView.AutoresizingMask.maxXMargin, NSView.AutoresizingMask.minYMargin, NSView.AutoresizingMask.maxXMargin]
         
         subviews = [imageView, spinner]
     }

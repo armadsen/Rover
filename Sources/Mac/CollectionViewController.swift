@@ -8,12 +8,12 @@
 
 import Cocoa
 
-fileprivate extension NSTouchBarCustomizationIdentifier {
-	static let collectionViewTouchBar = NSTouchBarCustomizationIdentifier("com.devmountain.rover.collectionViewTouchBar")
+fileprivate extension NSTouchBar.CustomizationIdentifier {
+	static let collectionViewTouchBar = NSTouchBar.CustomizationIdentifier("com.devmountain.rover.collectionViewTouchBar")
 }
 
-fileprivate extension NSTouchBarItemIdentifier {
-	static let scrubber = NSTouchBarItemIdentifier("com.rover.TouchBarItem.CollectionViewScrubber")
+fileprivate extension NSTouchBarItem.Identifier {
+	static let scrubber = NSTouchBarItem.Identifier("com.rover.TouchBarItem.CollectionViewScrubber")
 }
 
 protocol CollectionViewControllerDelegate: class {
@@ -36,8 +36,8 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 		let touchBar = NSTouchBar()
 		touchBar.delegate = self
 		touchBar.customizationIdentifier = .collectionViewTouchBar
-		touchBar.defaultItemIdentifiers = [.scrubber, .otherItemsProxy]
-		touchBar.customizationAllowedItemIdentifiers = [.scrubber, .otherItemsProxy]
+		touchBar.defaultItemIdentifiers = [.scrubber, NSTouchBarItem.Identifier.otherItemsProxy]
+		touchBar.customizationAllowedItemIdentifiers = [.scrubber, NSTouchBarItem.Identifier.otherItemsProxy]
 		
 		return touchBar
 	}
@@ -57,7 +57,7 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 	
 	// Notifications
 	
-	func dataLoaded(_ notification: NSNotification) {
+	@objc func dataLoaded(_ notification: NSNotification) {
 		self.invalidateTouchBar()
 	}
 	
@@ -73,11 +73,11 @@ class CollectionViewController: NSViewController, CollectionViewDelegate, PagePr
 }
 
 extension CollectionViewController: NSTouchBarDelegate {
-	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+	@objc func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 		let item: NSTouchBarItem
 		
 		switch identifier {
-		case NSTouchBarItemIdentifier.scrubber:
+		case NSTouchBarItem.Identifier.scrubber:
 			let scrubberItem = PhotoScrubberBarItem(identifier: identifier)
 			scrubberItem.customizationLabel = "Photo Scrubber"
 			scrubberItem.scrubber?.delegate = self
