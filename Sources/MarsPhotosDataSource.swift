@@ -8,7 +8,7 @@
 
 import Foundation
 #if os(OSX)
-import Cocoa
+	import Cocoa
 #endif
 
 class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
@@ -29,11 +29,6 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	
 	// MARK: Public Methods
 	
-	func cancelLoading(for indexPath: IndexPath) {
-		let photoRef = photoReferences[indexPath.item]
-		photosProvider.cancelOperations(for: photoRef)
-	}
-	
 	// MARK: CollectionViewDataSource
 	
 	func numberOfSections(in collectionView: CollectionView) -> Int {
@@ -43,7 +38,7 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	func collectionView(_ collectionView: CollectionView, numberOfItemsInSection section: Int) -> Int {
 		return photosProvider.photoReferences.count
 	}
-
+	
 	#if os(iOS)
 	func collectionView(_ collectionView: CollectionView, cellForItemAt indexPath: IndexPath) -> CollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCollectionViewCell ?? ImageCollectionViewCell()
@@ -52,12 +47,12 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 	}
 	#else
 	func collectionView(_ collectionView: CollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> CollectionViewCell {
-		let cell = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ImageCell"), for: indexPath)
-		configure(cell: cell, forItemAt: indexPath)
-		return cell
+	let cell = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ImageCell"), for: indexPath)
+	configure(cell: cell, forItemAt: indexPath)
+	return cell
 	}
 	#endif
-		
+	
 	// MARK: Actions
 	
 	// MARK: Private Methods
@@ -66,13 +61,15 @@ class MarsPhotosDataSource: NSObject, CollectionViewDataSource {
 		let photoRef = photosProvider.photoReferences[indexPath.item]
 		
 		photosProvider.image(for: photoRef) { (image) in
-			if let currentIndexPath = self.collectionView?.indexPath(for: cell),
-				currentIndexPath != indexPath {
-				print("Got image for now-reused cell")
-				return // Cell has been reused
+			DispatchQueue.main.async {
+				if let currentIndexPath = self.collectionView?.indexPath(for: cell),
+					currentIndexPath != indexPath {
+					print("Got image for now-reused cell")
+					return // Cell has been reused
+				}
+				
+				cell.imageView?.image = image
 			}
-			
-			cell.imageView?.image = image
 		}
 	}
 	

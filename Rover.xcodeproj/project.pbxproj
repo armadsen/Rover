@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
 		9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */; };
 		9D23386A1DF5F0AA0073D67E /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */; };
 		9D23386B1DF5F0AA0073D67E /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
-		9D23386C1DF5F0AD0073D67E /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */; };
-		9D23386D1DF5F0AD0073D67E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */; };
 		9D23386E1DF5F0B00073D67E /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
 		9D23387A1DF5F1250073D67E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338771DF5F1250073D67E /* AppDelegate.swift */; };
 		9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338781DF5F1250073D67E /* ImageCollectionViewCell.swift */; };
@@ -43,9 +40,6 @@
 		9D2338CB1DF682410073D67E /* PhotosProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2338C91DF682410073D67E /* PhotosProvider.swift */; };
 		9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */; };
 		9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E41DC93A3800C9E142 /* SolDescription.swift */; };
-		9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */; };
-		9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */; };
-		9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */; };
 		9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */; };
 		9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */; };
 		9DD4DBA21DF7261E00549FAB /* ImageCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4DBA11DF7261E00549FAB /* ImageCollectionViewItem.swift */; };
@@ -80,9 +74,6 @@
 		9D2338C91DF682410073D67E /* PhotosProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosProvider.swift; sourceTree = "<group>"; };
 		9D62E9DD1DC92FC900C9E142 /* MarsRoverClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRoverClient.swift; sourceTree = "<group>"; };
 		9D62E9E41DC93A3800C9E142 /* SolDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolDescription.swift; sourceTree = "<group>"; };
-		9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCache.swift; sourceTree = "<group>"; };
-		9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchPhotoOperation.swift; sourceTree = "<group>"; };
-		9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		9DC0CCFD1DC9282900C7B177 /* Rover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsRover.swift; sourceTree = "<group>"; };
@@ -114,7 +105,6 @@
 				9D2338C31DF678D70073D67E /* Observe.swift */,
 				9DC0CD271DC92B4200C7B177 /* Model */,
 				9D2338A11DF5F3220073D67E /* Data Sources */,
-				9D62E9EF1DC9530C00C9E142 /* Operations */,
 				9D62E9DC1DC92F8700C9E142 /* Networking */,
 			);
 			name = Shared;
@@ -243,15 +233,6 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		9D62E9EF1DC9530C00C9E142 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				9D62E9EB1DC951E800C9E142 /* FetchPhotoOperation.swift */,
-				9D62E9ED1DC9530100C9E142 /* ConcurrentOperation.swift */,
-			);
-			name = Operations;
-			sourceTree = "<group>";
-		};
 		9DC0CCF41DC9282900C7B177 = {
 			isa = PBXGroup;
 			children = (
@@ -292,7 +273,6 @@
 		9DC0CD271DC92B4200C7B177 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9D62E9E91DC9503A00C9E142 /* PhotoCache.swift */,
 				9DC0CD251DC92B3D00C7B177 /* MarsRover.swift */,
 				9DC0CD211DC92AAF00C7B177 /* MarsPhoto.swift */,
 				9D62E9E41DC93A3800C9E142 /* SolDescription.swift */,
@@ -418,10 +398,8 @@
 				9DD4DBA21DF7261E00549FAB /* ImageCollectionViewItem.swift in Sources */,
 				9D2338691DF5F0AA0073D67E /* MarsRover.swift in Sources */,
 				9D2338B31DF603D90073D67E /* MainViewController.swift in Sources */,
-				9D2338681DF5F0AA0073D67E /* PhotoCache.swift in Sources */,
 				9D2338B91DF62BAE0073D67E /* PageBackgroundView.swift in Sources */,
 				9D2338CB1DF682410073D67E /* PhotosProvider.swift in Sources */,
-				9D23386D1DF5F0AD0073D67E /* ConcurrentOperation.swift in Sources */,
 				9D23386B1DF5F0AA0073D67E /* SolDescription.swift in Sources */,
 				9D2338BC1DF633EC0073D67E /* PhotoScrubberBarItem.swift in Sources */,
 				9D2338B71DF614360073D67E /* DebugView.swift in Sources */,
@@ -429,7 +407,6 @@
 				9D23389F1DF5F2230073D67E /* CollectionViewController.swift in Sources */,
 				9D23386A1DF5F0AA0073D67E /* MarsPhoto.swift in Sources */,
 				9D2338C01DF634960073D67E /* ThumbnailItemView.swift in Sources */,
-				9D23386C1DF5F0AD0073D67E /* FetchPhotoOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,14 +417,11 @@
 				9D23387A1DF5F1250073D67E /* AppDelegate.swift in Sources */,
 				9D62E9E51DC93A3800C9E142 /* SolDescription.swift in Sources */,
 				9D2338C41DF678D70073D67E /* Observe.swift in Sources */,
-				9D62E9EA1DC9503A00C9E142 /* PhotoCache.swift in Sources */,
-				9D62E9EE1DC9530100C9E142 /* ConcurrentOperation.swift in Sources */,
 				9DC0CD221DC92AAF00C7B177 /* MarsPhoto.swift in Sources */,
 				9D2338A31DF5F35E0073D67E /* MarsPhotosDataSource.swift in Sources */,
 				9DC0CD261DC92B3D00C7B177 /* MarsRover.swift in Sources */,
 				9D23387B1DF5F1250073D67E /* ImageCollectionViewCell.swift in Sources */,
 				9D62E9DE1DC92FC900C9E142 /* MarsRoverClient.swift in Sources */,
-				9D62E9EC1DC951E800C9E142 /* FetchPhotoOperation.swift in Sources */,
 				9D2338CA1DF682410073D67E /* PhotosProvider.swift in Sources */,
 				9D23387C1DF5F1250073D67E /* CollectionViewController.swift in Sources */,
 				9D2338A61DF5F79F0073D67E /* PlatformShims.swift in Sources */,

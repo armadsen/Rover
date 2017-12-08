@@ -13,9 +13,8 @@ class PhotosProvider {
 	
 	static let sharedProvider = PhotosProvider()
 	
-	init(client: MarsRoverClient = MarsRoverClient(), cache: PhotoCache = PhotoCache.sharedCache) {
+	init(client: MarsRoverClient = MarsRoverClient()) {
 		self.client = client
-		self.cache = cache
 	}
 	
 	// MARK: Overridden
@@ -38,42 +37,25 @@ class PhotosProvider {
 	}
 	
 	func image(for photoReference: MarsPhotoReference, completion: @escaping (Image?) -> Void) {
-		if let cachedImageData = cache.imageData(for: photoReference.id),
-			let image = Image(data: cachedImageData) {
-			completion(image)
-			return
-		}
 		
-		// Start an operation to fetch image data
-		let fetchOp = FetchPhotoOperation(photoReference: photoReference)
-		let cacheOp = BlockOperation {
-			if let data = fetchOp.imageData {
-				self.cache.cache(imageData: data, for: photoReference.id)
-			}
-		}
-		let completionOp = BlockOperation {
-			defer { self.operations.removeValue(forKey: photoReference.id) }
-
-			if let data = fetchOp.imageData,
-				let image = Image(data: data) {
-				completion(image)
-			} else {
+		var urlComps = URLComponents(url: photoReference.imageURL, resolvingAgainstBaseURL: true)!
+		urlComps.scheme = "https"
+		let url = urlComps.url!
+		
+		let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+			if let error = error {
+				NSLog("Error fetching data for \(photoReference): \(error)")
 				completion(nil)
+				return
 			}
+			guard let data = data else {
+				NSLog("Error fetching data for \(photoReference)")
+				completion(nil)
+				return
+			}
+			completion(Image(data: data))
 		}
-		
-		cacheOp.addDependency(fetchOp)
-		completionOp.addDependency(fetchOp)
-		
-		photoFetchQueue.addOperation(fetchOp)
-		photoFetchQueue.addOperation(cacheOp)
-		OperationQueue.main.addOperation(completionOp)
-		
-		operations[photoReference.id] = fetchOp
-	}
-	
-	func cancelOperations(for photoReference: MarsPhotoReference) {
-		operations[photoReference.id]?.cancel()
+		task.resume()
 	}
 	
 	// MARK: Actions
@@ -94,9 +76,6 @@ class PhotosProvider {
 	// MARK: Private Properties
 	
 	private let client: MarsRoverClient
-	private let cache: PhotoCache
-	private let photoFetchQueue = OperationQueue()
-	private var operations = [Int : Operation]()
 	
 	private var roverInfo: MarsRover? = nil {
 		didSet {
