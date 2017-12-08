@@ -8,13 +8,17 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController {
+class CollectionViewController: UIViewController, UICollectionViewDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		collectionView.dataSource = dataSource
 		dataSource.collectionView = collectionView
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: CollectionViewCell, forItemAt indexPath: IndexPath) {
+		dataSource.cancelLoading(for: indexPath)
 	}
 	
 	// Properties
