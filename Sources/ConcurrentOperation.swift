@@ -31,15 +31,15 @@ class ConcurrentOperation: Operation {
     
     // MARK: NSOperation
     
-    override var isReady: Bool {
+    override dynamic var isReady: Bool {
         return super.isReady && state == .isReady
     }
     
-    override var isExecuting: Bool {
+    override dynamic var isExecuting: Bool {
         return state == .isExecuting
     }
     
-    override var isFinished: Bool {
+    override dynamic var isFinished: Bool {
         return state == .isFinished
     }
     
